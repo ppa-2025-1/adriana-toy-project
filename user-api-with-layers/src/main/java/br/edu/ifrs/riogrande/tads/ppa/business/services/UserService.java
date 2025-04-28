@@ -11,7 +11,6 @@ import br.edu.ifrs.riogrande.tads.ppa.business.validators.RolesValidator;
 import br.edu.ifrs.riogrande.tads.ppa.persistence.RoleRepository;
 import br.edu.ifrs.riogrande.tads.ppa.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -67,8 +66,8 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public ResponseEntity<List<User>> getUsers() {
-        return ResponseEntity.ok(userRepository.findAll());
+    public List<User> getUsers() {
+        return userRepository.findAll();
     }
 
     private static String generateHandle(String email) {
